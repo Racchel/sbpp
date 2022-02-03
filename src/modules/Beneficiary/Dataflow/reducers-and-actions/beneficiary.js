@@ -8,14 +8,11 @@ const beneficiaryState = {
 	selectedClient: {},
 	step: 'beneficiary',
 	beneficiaryData: {
-		registration: '',
-		cpfOrCnpj: '',
 		// Finance
 		accountType:'',
 		bank:'',
 		paymentMethod: '',
 		personalData: {
-			name: '',
 			email: '',
 			socialName: '',
 			birthDate: '',
@@ -85,17 +82,12 @@ const beneficiarySlice = createSlice({
 		setBank: (state, action) => {
 			state.beneficiaryData.bank = action.payload
 		},
+		setPaymentMethod: (state, action) => {
+			state.beneficiaryData.paymentMethod = action.payload
+		},
 		// beneficiary
-		setRegistration: (state, action) => {
-			state.beneficiaryData.registration = action.payload
-		},
-		setCpfOrCnpj: (state, action) => {
-			state.beneficiaryData.cpfOrCnpj = action.payload
-		},
+
 		//setPersonalData
-		setName: (state, action) => {
-			state.beneficiaryData.personalData.name = action.payload
-		},
 		setEmail: (state, action) => {
 			state.beneficiaryData.personalData.email = action.payload
 		},
@@ -206,11 +198,9 @@ export const {
 	setSelectedClient, 
 	setStep, 
 	setAccountType,
+	setBank,
+	setPaymentMethod,
 	//beneficiary
-	setRegistration,
-	setCpfOrCnpj,
-	//
-	setName,
 	setEmail,
 	setSocialName,
 	setBirthDate,

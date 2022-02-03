@@ -11,7 +11,6 @@ import { countries, genders } from '../mocks';
 
 // actions
 import { 
-	setName,
 	setEmail,
 	setSocialName,
 	setBirthDate,
@@ -51,8 +50,6 @@ export const PersonalData = ({
                width="60%"
                label="Nome"
                value={client.name}
-               // value={personalData.name}
-               action={setName}
             />
 
             <Input
