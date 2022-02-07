@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './style'
-import { useSelector , useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setNationality } from '../../../modules/Beneficiary/Dataflow/reducers-and-actions/beneficiary';
 
 
@@ -23,13 +23,13 @@ export const Input = ({
 
 	return (
 		<S.Label width={width} row={row} optional={optional}> {label}
-			<S.Input 
+			<S.Input
 				type={type}
 				widthInput={widthInput}
 				HeightInput={HeightInput}
-				value={value} 
+				value={value}
 				isDisabled={isDisabled}
-				disabled={disabled} 
+				disabled={disabled}
 				isDisabled={isDisabled}
 				onChange={handleChange}
 				noPadding={noPadding}
@@ -56,12 +56,14 @@ export const Select = ({
 	isOpened,
 	action,
 	toogle,
-	state
+	state,
+	optional,
+	disabled
 }) => {
 
 	const dispatch = useDispatch();
 
-	const handleClick = (e, option)=> {
+	const handleClick = (e, option) => {
 		e.preventDefault();
 		dispatch(action(option))
 		toogle(!state)
@@ -69,35 +71,40 @@ export const Select = ({
 
 	console.log(options)
 
+	const calcHeight = options.length > 3 ? (options.length * 32) + .5: 'fit-content'
+
 	return (
 		<>
-			<S.Label width={width} > {label}
-				<S.Select onClick={handleClickSelect}>
+			<S.Label 
+			width={width}
+			optional={optional} 
+			> {label}
+				<S.Select onClick={handleClickSelect} disabled={disabled} >
 					{value}
 					<S.Arrow
-						src={source} 
-						isOpened={isOpened} 
-						alt='seta' 
-					/> 
+						src={source}
+						isOpened={isOpened}
+						alt='seta'
+					/>
 				</S.Select>
 
 				{isOpened && (
-				<S.Options height={options.length * 36} >
-					{options.map((option, index) => {
-						return (
-							<S.Button 
-								key={index} 
-								onClick={(ev) => handleClick(ev,option)} 
-							>
-								{option.name || option}
-							</S.Button>
-						)
-					})}
-					
-				</S.Options>
-			)}
+					<S.Options height={calcHeight} >
+						{options.map((option, index) => {
+							return (
+								<S.Button
+									key={index}
+									onClick={(ev) => handleClick(ev, option)}
+								>
+									{option.name || option}
+								</S.Button>
+							)
+						})}
+
+					</S.Options>
+				)}
 			</S.Label>
-			
+
 		</>
 	)
 }

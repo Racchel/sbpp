@@ -76,6 +76,7 @@ const beneficiarySlice = createSlice({
 		setStep: (state, action) => {
 			state.step = action.payload
 		},
+<<<<<<< HEAD
 		setAccountType: (state, action) => {
 			state.beneficiaryData.accountType = action.payload
 		},
@@ -84,6 +85,14 @@ const beneficiarySlice = createSlice({
 		},
 		setPaymentMethod: (state, action) => {
 			state.beneficiaryData.paymentMethod = action.payload
+=======
+		// beneficiary
+		setRegistration: (state, action) => {
+			state.beneficiaryData.registration = action.payload
+		},
+		setCpfOrCnpj: (state, action) => {
+			state.beneficiaryData.cpfOrCnpj = action.payload
+>>>>>>> 184199ac92c5c8586936a11edaad2a99ca5783f9
 		},
 		// beneficiary
 
@@ -188,11 +197,26 @@ const beneficiarySlice = createSlice({
 		setPhone2: (state, action) => {
 			state.beneficiaryData.phone.phone2 = action.payload
 		},
+		//bancary data
+		setAccountType: (state, action) => {
+			state.beneficiaryData.accountType = action.payload
+		},
+		setBank: (state, action) => {
+			state.beneficiaryData.bank = action.payload
+		},
+		setPaymentMethod: (state, action) => {
+			state.beneficiaryData.paymentMethod = action.payload
+		},
+		setResetStates: () => {
+			return beneficiaryState
+		},
+
 	}
 })
 
 //Actions
 export const { 
+	setResetStates,
 	setScreen, 
 	setFilterOpened, 
 	setSelectedClient, 
@@ -201,6 +225,15 @@ export const {
 	setBank,
 	setPaymentMethod,
 	//beneficiary
+<<<<<<< HEAD
+=======
+	setRegistration,
+	setCpfOrCnpj,
+	setBank,
+	setPaymentMethod,
+	//
+	setName,
+>>>>>>> 184199ac92c5c8586936a11edaad2a99ca5783f9
 	setEmail,
 	setSocialName,
 	setBirthDate,
